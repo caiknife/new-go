@@ -6,7 +6,7 @@ func GoStairWithLoop(s int) int {
 	// result是f(1)的值 tmp是f(2)-f(1)的值
 	result, tmp := 1, 1
 
-	for ; s != 0; {
+	for s != 0 {
 		tmp = result + tmp
 		result = tmp - result
 		s--
