@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"flag"
+)
 
 func max(a int, b int) int {
 	if a > b {
@@ -26,7 +29,19 @@ func sign(a int) int {
 	}
 }
 
+var (
+	name string
+)
+
+func init() {
+	flag.StringVar(&name, "name", "everyone", "The greeting object")
+
+	flag.Parse()
+}
+
 func main() {
+	fmt.Printf("Hello, %s!\n", name)
+
 	fmt.Println(sign(max(min(24, 42), max(24, 42))))
 	fmt.Println(sign(max(min(24, 42), max(24, 42))))
 }
