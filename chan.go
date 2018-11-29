@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 func main() {
@@ -16,6 +17,7 @@ func main() {
 	elem1 := <-ch1
 	fmt.Printf("The first element received from channel ch1: %v\n", elem1)
 
+	rand.Seed(time.Now().UnixNano())
 	// Block 2
 	intChan2 := getIntChan()
 	for elem := range intChan2 {
@@ -52,7 +54,7 @@ func getIntChan() <-chan int {
 	num := 5 // 通道容量 5
 
 	ch := make(chan int, num) // 创建一个通道
-	
+
 	for i := 0; i < num; i++ {
 		ch <- rand.Intn(100) // 每次传入时随机生成一个[0, 100)的整数
 	}
