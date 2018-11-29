@@ -18,6 +18,8 @@ func main() {
 		"two":   2,
 		"three": 3,
 	}
+	
+	aMap["four"] = 4
 
 	k := "two"
 
