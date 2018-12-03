@@ -17,7 +17,7 @@ func main() {
 	elem1 := <-ch1
 	fmt.Printf("The first element received from channel ch1: %v\n", elem1)
 
-	rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().Unix()) // 根据时间生成随机种子数，不然每次都是一样的结果
 	// Block 2
 	intChan2 := getIntChan()
 	for elem := range intChan2 {
